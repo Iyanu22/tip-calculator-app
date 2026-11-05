@@ -1,3 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 23.4375rem;
+  width: 100%;
+}
+.container .header {
+  text-align: center;
+  background-color: hsl(172, 67%, 45%);
+  padding: 2.55rem 0;
+}
+.container .header_body {
+  background-color: hsl(0, 100%, 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 1.5625rem 1.5625rem 0 0;
+  margin-top: -1.875rem;
+}
+.container .header_body .bill {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  line-height: 2.4;
+}
+.container .header_body .tip-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  line-height: 2.4;
+}
+.container .header_body #bill {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(186, 14%, 43%);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  text-align: right;
+  background-image: url("/images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+}
+.container .header_body .tip-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.container .header_body .tip-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(186, 14%, 43%);
+  border-radius: 5px;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 100%, 100%);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  cursor: pointer;
+}
+.container .header_body .label_people {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  line-height: 2.4;
+}
+.container .header_body #people {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(186, 14%, 43%);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  text-align: right;
+  background-image: url("/images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+}
+.container .header_body .results {
+  background-color: hsl(183, 100%, 15%);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  color: hsl(0, 100%, 100%);
+}
+.container .header_body .row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.container .header_body .row .total_amount {
+  font-size: 2rem;
+  color: hsl(172, 67%, 45%);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.042rem;
+}
+.container .header_body .row .label_amount, .container .header_body .row .label_total {
+  font-size: 1rem;
+  color: hsl(0, 100%, 100%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+}
+.container .header_body .row .label_person {
+  font-size: 0.8125rem;
+  color: hsl(184, 14%, 56%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  line-height: 1.9;
+}
+.container .header_body #reset {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  cursor: pointer;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+$green-400: hsl(172, 67%, 45%);
+$green-900: hsl(183, 100%, 15%);
+$grey-500: hsl(186, 14%, 43%);
+$grey-400: hsl(184, 14%, 56%);
+$grey-200: hsl(185, 41%, 84%);
+$grey-50: hsl(189, 47%, 97%);
+$white: hsl(0, 100%, 100%);
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.container{
+    max-width: 23.4375rem;
+    width: 100%;
+
+
+.header{
+    text-align: center;
+    background-color: $green-400;
+    padding: 2.55rem 0;
+}
+.header_body{
+    background-color: $white;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5625rem 1.5625rem 0 0;
+    margin-top: -1.875rem;
+
+    .bill{
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: $grey-500;
+        font-weight: 700;
+        font-family: 'Space Mono', monospace;
+        line-height: 2.4;
+    }
+    .tip-label{
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: $grey-500;
+        font-weight: 700;
+        font-family: 'Space Mono', monospace;
+        line-height: 2.4;
+    }
+    #bill{
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid $grey-500;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: 'Space Mono', monospace;
+        text-align: right;
+        background-image: url('/images/icon-dollar.svg');
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+    }
+    .tip-buttons{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+      
+        button{
+            padding: 0.5rem 1rem;
+            border: 1px solid $grey-500;
+            border-radius: 5px;
+            background-color: $green-900;
+            color: $white;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+        }
+    }
+    .label_people{
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: $grey-500;
+        font-weight: 700;
+        font-family: 'Space Mono', monospace;
+        line-height: 2.4;
+    }
+    #people{
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid $grey-500;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: 'Space Mono', monospace;
+        text-align: right;
+        background-image: url('/images/icon-person.svg');
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+        background-color: $grey-200;
+        color: $green-900;
+    }
+    .results{
+        background-color: $green-900;
+        padding: 2rem 1.5rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+        color: $white;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        
+        .total_amount{
+            font-size: 2rem;
+            color: $green-400;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.042rem;
+        }
+        .label_amount, .label_total{
+            font-size: 1rem;
+            color: $white;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            // line-height: 2.4;
+        }
+        .label_person{
+            font-size: 0.8125rem;
+            color: $grey-400;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.9;
+        }
+    }
+        #reset{
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: $green-400;
+            color: $green-900;
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            // line-height: 3.0;
+            margin-top: 2rem;
+            text-transform: uppercase;
+        }
+    
+    
+}
+}
+
+
