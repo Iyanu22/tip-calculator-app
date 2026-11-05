@@ -58,11 +58,12 @@ main {
 }
 .container .header_body .tip-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 1rem;
 }
-.container .header_body .tip-buttons button {
+.container .header_body .tip-buttons button, .container .header_body .tip-buttons #custom-tip {
+  width: 100%;
   padding: 0.5rem 1rem;
   border: 1px solid hsl(186, 14%, 43%);
   border-radius: 5px;
@@ -72,6 +73,12 @@ main {
   font-weight: 700;
   font-family: "Space Mono", monospace;
   cursor: pointer;
+  line-height: 3.6;
+}
+.container .header_body .tip-buttons #custom-tip {
+  text-align: center;
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(186, 14%, 43%);
 }
 .container .header_body .label_people {
   display: block;
@@ -85,7 +92,7 @@ main {
 }
 .container .header_body #people {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border: 1px solid hsl(186, 14%, 43%);
   border-radius: 5px;
   font-size: 1rem;
