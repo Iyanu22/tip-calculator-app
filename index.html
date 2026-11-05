@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css"
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Tip calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -15,36 +15,54 @@
   </style>
 </head>
 <body>
+  <main>
+  <div class="container">
+    <div class="header">
 <img src="/images/logo.svg" alt="" class="logo">
-  
-<label for="bill">Bill</label>
+</div>
+
+  <div class="header_body">
+<label for="bill" class="bill">Bill</label>
 <input type="number" id="bill" placeholder="0.00">
 
-  <p>Select Tip %</p>
+  <p class="tip-label">Select Tip %</p>
+  <div class="tip-buttons">
   <button>5%</button>
   <button>10%</button>
   <button>15%</button>
   <button>25%</button>
   <button>50%</button>
-  <input type="number" id="custom-tip" placeholder="Custom">
-
-  <label for="people">Number of People</label>
+  <button class="custom">Custom</button>
+  <!-- <input type="number" id="custom-tip" placeholder="Custom"> -->
+</div>  
+  <label for="people" class="label_people">Number of People</label>
   <input type="number" id="people" placeholder="0">
-<table>
-  <tr>
-    <td>Tip Amount</td>
-    <td>/ person</td>
-    <td>$4.27</td>
-  </tr>
-  <tr>
-    <td>Total</td>
-    <td>/ person</td>
-    <td>$8.54</td>
-  </tr>
-</table>
+  
 
+<div class="results">
+  <div class="row">
+  <div class="label">
+    <p class="label_amount">Tip Amount</p>
+     <p class="label_person">/ person</p> 
+      </div>
+    <p class="total_amount">$4.27</p>
+    </div>
+
+    <div class="row">
+  <div class="total">
+    <p class="label_total">Total</p>
+    <p class="label_person">/ person</p>
+    
+  </div>
+  <p class="total_amount">$8.54</p>
+  </div>
   <button id="reset">Reset</button>
+</div>
 
+  
+</div>
+</div>
+</main>
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
