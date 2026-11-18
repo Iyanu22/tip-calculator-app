@@ -104,6 +104,11 @@ main {
   outline: none;
   border: 2px solid hsl(172, 67%, 45%);
 }
+.container .header_body .people_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
 .container .header_body .label_people {
   display: block;
   margin-top: 1rem;
@@ -206,7 +211,6 @@ main {
   font-weight: 700;
   font-family: "Space Mono", monospace;
   display: none;
-  margin-left: 5rem;
 }
 
 @media (min-width: 768px) {

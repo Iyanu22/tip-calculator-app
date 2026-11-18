@@ -34,11 +34,12 @@
   <!-- <button class="custom">Custom</button> -->
   <input type="number" id="custom-tip" placeholder="Custom" aria-label="Custom tip percentage" min="0" step="any">
 </div>  
-  <label for="people" class="label_people">Number of People
+<div class="people_row">
+  <label for="people" class="label_people">Number of People</label>
     <span class="error_message" id="error_message" role="alert">Can't be zero</span>
-  </label>
+</div>
   <input type="number" id="people" placeholder="0"  min="1" step="1" inputmode="numeric"
-       aria-describedby="error_message">
+       aria-describedby="error_message" aria-invalid="false">
   </div>
 
 <div class="results" >

@@ -119,6 +119,11 @@ main{
         }
         
     }
+    .people_row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
     .label_people{
         display: block;
         margin-top: 1rem;
@@ -228,7 +233,7 @@ main{
         font-weight: 700;
         font-family: 'Space Mono', monospace;
         display: none;
-        margin-left: 5rem;
+        // margin-left: 5rem;
     }
 }
 
