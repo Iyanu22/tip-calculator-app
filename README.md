@@ -1,106 +1,136 @@
-# Frontend Mentor - Tip calculator app
+# Frontend Mentor - Tip calculator app solution
 
-![Design preview for the Tip calculator app coding challenge](./preview.jpg)
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-### Want some support on the challenge? 
+Beyond the brief, the app also:
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- Lets the user pick a preset tip (5%, 10%, 15%, 25%, 50%) or type a custom percentage
+- Shows a "Can't be zero" error when the number of people is `0`
+- Disables the Reset button when there is nothing to reset
 
-## Where to find everything
+### Screenshot
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+![](./images/tip-calculator-app.png)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Links
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [Add solution URL here](https://github.com/Iyanu22/tip-calculator-app)
+- Live Site URL: [Add live site URL here](https://iyanu22.github.io/tip-calculator-app/)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Using AI coding assistants
+- Semantic HTML5 markup
+- SCSS (variables and nesting), compiled to CSS
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Vanilla JavaScript (no frameworks)
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+### What I learned
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+**1. Keep state in variables and render from one function.**
+My first version ran the calculation once at page load, so the results never changed. The fix was to let the event handlers only update state (`billAmount`, `tipPercentage`, `numberOfPeople`) and have a single `calculate()` function turn that state into what's on screen.
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+```js
+billInput.addEventListener('input', () => {
+    billAmount = Number(billInput.value);
+    calculate();
+});
+```
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+**2. An early `return` skips everything below it.**
+Putting the Reset button's disabled logic at the bottom of `calculate()` meant it never ran when the people field was `0`, because the error branch returns first. Work that must happen on every path goes before the early return.
 
-## Building your project
+```js
+function calculate() {
+    resetButton.disabled = /* nothing entered yet */;
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+    if (peopleZero) {
+        // show error, set $0.00
+        return;
+    }
+    // normal calculation
+}
+```
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+**3. Empty is not the same as zero.**
+`Number('')` is `0`, so an empty field and a typed `0` look identical once converted. Checking the raw string (`peopleInput.value === ''`) before converting lets me show the error only for a real `0`.
 
-## Deploying your project
+**4. Nested SCSS changes your selectors.**
+Rules nested inside `.container .header_body` compile to `.container .header_body .results`, so a media query with a shorter selector silently loses on specificity. Repeating the full selector chain in the media query fixed it. It also taught me that moving an element out of its parent in the HTML breaks every nested rule that depended on it.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+**5. CSS details that made the UI feel right.**
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- `&.active` (no space) targets the same element with the class, while `& .active` targets a descendant.
+- `margin-top: auto` inside a flex column pins the Reset button to the bottom of the results panel.
+- `:hover:not(:disabled)` stops a disabled button from reacting to the mouse.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+```scss
+#reset {
+    &:hover:not(:disabled) {
+        background-color: $green-200;
+    }
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+```
 
-## Create a custom `README.md`
+### Continued development
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+- Accessibility: announce the results and the error message to screen readers (`aria-live`, `aria-describedby`), and make sure the selected tip is exposed with `aria-pressed`.
+- Input limits: guard against negative numbers, very large values and non-integer people counts.
+- Add automated tests for the calculation logic.
+- Compare my spacing values against the design files at each breakpoint.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### Useful resources
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+- [MDN: Event: target property](https://developer.mozilla.org/en-US/docs/Web/API/Event/target) - Cleared up why `e.target.value` is the right way to read what the user typed.
+- [MDN: CSS grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) - Reference for the two-column desktop layout and the 3-column tip grid.
+- [Sass documentation: parent selector](https://sass-lang.com/documentation/style-rules/parent-selector/) - Explained how `&.active` and `&:hover` compile.
+- [Conventional Commits](https://www.conventionalcommits.org/) - Used for commit message structure.
 
-## Submitting your solution
+### AI Collaboration
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+I used Claude throughout this project for:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- **Debugging.** Finding why `e.tipPercentage` was undefined, why the results only calculated once, why the results panel rendered unstyled, and why the Reset state broke on the zero-people path.
+- **Code review.** Reviewing my handlers and `calculate()` for edge cases such as empty versus zero input.
+- **Explaining concepts.** Why `repeat(3, 1fr)` works, how `git add -p` works, and how SCSS nesting affects specificity.
+- **Housekeeping.** Drafting commit messages and structuring this README.
 
-## Sharing your solution
+What worked well: asking for the reasoning behind a fix, not just the fix, and testing each suggestion against edge cases in the browser before keeping it.
 
-There are multiple places you can share your solution:
+What didn't: my first desktop media query came from a screenshot, without accounting for my nested SCSS and HTML structure, so it didn't work as given. I only got the layout right after comparing it against my actual files. A suggestion is only as good as the context it was given, so I verify against my own code.
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+## Author
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Website - [Add your name here](https://www.your-site.com)
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Iyanu22)
