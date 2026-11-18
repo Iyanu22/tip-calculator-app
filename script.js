@@ -10,23 +10,25 @@ const errorMessage = document.getElementById('error_message');
 let billAmount = 0;
 let tipPercentage = 0;
 let numberOfPeople = 1;
-// let customTipPercentage = 0;
 
 function calculate() {
-     const untouched= billAmount === 0 && tipPercentage === 0 && numberOfPeople === 1;
-    resetButton.disabled = untouched;
+       const peopleEmpty = peopleInput.value === '';
+    const peopleZero = !peopleEmpty && numberOfPeople <= 0;
 
-    if (numberOfPeople <= 0) {
-        errorMessage.style.display = 'inline';
-        peopleInput.classList.add('invalid');
+    resetButton.disabled =
+        billInput.value === '' &&
+        customTipInput.value === '' &&
+        peopleEmpty &&
+        tipPercentage === 0;
+
+    errorMessage.style.display = peopleZero ? 'inline' : 'none';
+    peopleInput.classList.toggle('invalid', peopleZero);
+
+    if (peopleEmpty || peopleZero) {
         tipAmount.textContent = '$0.00';
         totalAmount.textContent = '$0.00';
-        return;    
-        console.log('reset disabled?', resetButton.disabled);                 
+        return;
     }
-
-    errorMessage.style.display = 'none';
-    peopleInput.classList.remove('invalid');
 
     const tipPerPerson = (billAmount * tipPercentage / 100) / numberOfPeople;
     const totalPerPerson = (billAmount / numberOfPeople) + tipPerPerson;
