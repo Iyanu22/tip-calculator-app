@@ -50,7 +50,7 @@ tipButtons.forEach(button => {
     });
 });
 customTipInput.addEventListener('input', (e) => {
-    tipPercentage = Number(e.target.value);
+    tipPercentage = parseNonNegative(e.target.value);
    
    clearTipSelection();
     calculate();
@@ -60,7 +60,7 @@ peopleInput.addEventListener('input', () => {
     calculate();
 });
 billInput.addEventListener('input', () => {
-    billAmount = Number(billInput.value);
+    billAmount = parseNonNegative(billInput.value);
     calculate();
 });
 
@@ -81,5 +81,10 @@ function clearTipSelection() {
         btn.classList.remove('active');
         btn.setAttribute('aria-pressed', 'false');
     });
+}
+
+function parseNonNegative(value) {
+    const num = Number(value);
+    return Number.isFinite(num) && num >= 0 ? num : 0;
 }
 calculate(); // Initial calculation to set default values
