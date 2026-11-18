@@ -23,6 +23,7 @@ function calculate() {
 
     errorMessage.style.display = peopleZero ? 'inline' : 'none';
     peopleInput.classList.toggle('invalid', peopleZero);
+    peopleInput.setAttribute('aria-invalid', peopleZero);
 
     if (peopleEmpty || peopleZero) {
         tipAmount.textContent = '$0.00';
@@ -42,8 +43,10 @@ tipButtons.forEach(button => {
     button.addEventListener('click', () => {
     tipPercentage = Number(button.getAttribute('data-tip'));
     customTipInput.value = '';
-    tipButtons.forEach(btn => btn.classList.remove('active')); // Remove 'selected' class from all buttons
-    button.classList.add('active'); // Add 'selected' class to the clicked button
+    tipButtons.forEach(btn => btn.classList.remove('active')); 
+     btn.setAttribute('aria-pressed', 'false');
+    button.classList.add('active'); 
+    button.setAttribute('aria-pressed', 'true');
     calculate(); 
     });
 });
