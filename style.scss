@@ -5,6 +5,7 @@
 }
 $green-400: hsl(172, 67%, 45%);
 $green-900: hsl(183, 100%, 15%);
+$green-200: hsl(173, 61%, 77%);
 $grey-500: hsl(186, 14%, 43%);
 $grey-400: hsl(184, 14%, 56%);
 $grey-200: hsl(185, 41%, 84%);
@@ -83,6 +84,11 @@ main{
             cursor: pointer;
             line-height: 3.6;
 
+            &:hover{
+                background-color: $green-200;
+                color: $green-900;
+            }
+
             &.active{
         background-color: $green-400;
         color: $green-900;
@@ -91,7 +97,11 @@ main{
          #custom-tip{
             text-align: center;
             background-color: $grey-200;
-            color: $grey-500;
+            color: $grey-600;
+
+            &:hover{
+               border-color: $green-400;
+            }
         
             &:focus{
                 outline: none;
@@ -126,7 +136,7 @@ main{
         color: $green-900;
 
         &.hover{
-            background-color: $green-400;
+            background-color: $green-200;
             color: $green-900;
         }
         
@@ -188,11 +198,11 @@ main{
             text-transform: uppercase;
 
             &:hover{
-                background-color: $grey-200;
+                background-color: $green-200;
                 color: $white;
             }
             &:hover:not(:disabled){
-                background-color: $grey-200;
+                background-color: $green-200;
                 color: $green-900;
     }
 
