@@ -13,12 +13,16 @@ let numberOfPeople = 1;
 // let customTipPercentage = 0;
 
 function calculate() {
+     const untouched= billAmount === 0 && tipPercentage === 0 && numberOfPeople === 1;
+    resetButton.disabled = untouched;
+
     if (numberOfPeople <= 0) {
         errorMessage.style.display = 'inline';
         peopleInput.classList.add('invalid');
         tipAmount.textContent = '$0.00';
         totalAmount.textContent = '$0.00';
-        return;                     
+        return;    
+        console.log('reset disabled?', resetButton.disabled);                 
     }
 
     errorMessage.style.display = 'none';
@@ -30,8 +34,6 @@ function calculate() {
     tipAmount.textContent = `$${tipPerPerson.toFixed(2)}`;
     totalAmount.textContent = `$${totalPerPerson.toFixed(2)}`;
 
-    const untouched= billAmount === 0 && tipPercentage === 0 && numberOfPeople === 1;
-    resetButton.disabled = untouched;
 }
 
 tipButtons.forEach(button => {
