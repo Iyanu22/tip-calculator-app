@@ -56,13 +56,13 @@ main {
   background-repeat: no-repeat;
   background-position: 1rem center;
 }
-.container .header_body .tip-buttons {
+.container .header_body .button_group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 1rem;
 }
-.container .header_body .tip-buttons button, .container .header_body .tip-buttons #custom-tip {
+.container .header_body .button_group button, .container .header_body .button_group #custom-tip {
   width: 100%;
   padding: 0.5rem 1rem;
   border: 1px solid hsl(186, 14%, 43%);
@@ -75,7 +75,7 @@ main {
   cursor: pointer;
   line-height: 3.6;
 }
-.container .header_body .tip-buttons #custom-tip {
+.container .header_body .button_group #custom-tip {
   text-align: center;
   background-color: hsl(185, 41%, 84%);
   color: hsl(186, 14%, 43%);
@@ -150,6 +150,19 @@ main {
   cursor: pointer;
   margin-top: 2rem;
   text-transform: uppercase;
+}
+.container .header_body #error_message {
+  color: red;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  display: none;
+  margin-left: 5rem;
+}
+
+.active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
 }
 
 /*# sourceMappingURL=style.css.map */
