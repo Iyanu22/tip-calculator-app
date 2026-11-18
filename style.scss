@@ -188,9 +188,14 @@ main{
             text-transform: uppercase;
 
             &:hover{
-                background-color: $green-900;
+                background-color: $grey-200;
                 color: $white;
             }
+            &:hover:not(:disabled){
+                background-color: $grey-200;
+                color: $green-900;
+    }
+
             &:disabled{
                 opacity: 0.3;
                 cursor: not-allowed;

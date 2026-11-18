@@ -173,8 +173,12 @@ main {
   text-transform: uppercase;
 }
 .container .header_body #reset:hover {
-  background-color: hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
   color: hsl(0, 100%, 100%);
+}
+.container .header_body #reset:hover:not(:disabled) {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
 }
 .container .header_body #reset:disabled {
   opacity: 0.3;
