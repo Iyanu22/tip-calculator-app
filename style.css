@@ -75,10 +75,18 @@ main {
   cursor: pointer;
   line-height: 3.6;
 }
+.container .header_body .button_group button.active, .container .header_body .button_group #custom-tip.active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
 .container .header_body .button_group #custom-tip {
   text-align: center;
   background-color: hsl(185, 41%, 84%);
   color: hsl(186, 14%, 43%);
+}
+.container .header_body .button_group #custom-tip:focus {
+  outline: none;
+  border: 2px solid hsl(172, 67%, 45%);
 }
 .container .header_body .label_people {
   display: block;
@@ -104,6 +112,13 @@ main {
   background-position: 1rem center;
   background-color: hsl(185, 41%, 84%);
   color: hsl(183, 100%, 15%);
+}
+.container .header_body #people.hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+.container .header_body #people.invalid {
+  border: 2px solid red;
 }
 .container .header_body .results {
   background-color: hsl(183, 100%, 15%);
@@ -137,6 +152,12 @@ main {
   font-family: "Space Mono", monospace;
   line-height: 1.9;
 }
+.container .header_body .row .amount {
+  font-size: 1.5rem;
+  color: hsl(172, 67%, 45%);
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+}
 .container .header_body #reset {
   width: 100%;
   padding: 0.5rem 1rem;
@@ -151,8 +172,16 @@ main {
   margin-top: 2rem;
   text-transform: uppercase;
 }
+.container .header_body #reset:hover {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 100%, 100%);
+}
+.container .header_body #reset:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 .container .header_body #error_message {
-  color: red;
+  color: #E17052;
   font-size: 0.75rem;
   font-weight: 700;
   font-family: "Space Mono", monospace;
@@ -160,9 +189,27 @@ main {
   margin-left: 5rem;
 }
 
-.active {
-  background-color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
+@media (min-width: 768px) {
+  .container {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+  body {
+    background-color: hsl(189, 47%, 97%);
+    min-height: 100vh;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    background-color: hsl(189, 47%, 97%);
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

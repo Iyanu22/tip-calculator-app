@@ -82,13 +82,23 @@ main{
             font-family: 'Space Mono', monospace;
             cursor: pointer;
             line-height: 3.6;
+
+            &.active{
+        background-color: $green-400;
+        color: $green-900;
+    }
         }
          #custom-tip{
             text-align: center;
             background-color: $grey-200;
             color: $grey-500;
         
+            &:focus{
+                outline: none;
+                border: 2px solid $green-400;
+            }
         }
+        
     }
     .label_people{
         display: block;
@@ -114,6 +124,15 @@ main{
         background-position: 1rem center;
         background-color: $grey-200;
         color: $green-900;
+
+        &.hover{
+            background-color: $green-400;
+            color: $green-900;
+        }
+        
+        &.invalid{
+            border: 2px solid red;
+        }
     }
     .results{
         background-color: $green-900;
@@ -147,6 +166,12 @@ main{
             font-family: 'Space Mono', monospace;
             line-height: 1.9;
         }
+        .amount{
+            font-size: 1.5rem;
+            color: $green-400;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+        }
     }
         #reset{
             width: 100%;
@@ -161,11 +186,20 @@ main{
             cursor: pointer;
             margin-top: 2rem;
             text-transform: uppercase;
+
+            &:hover{
+                background-color: $green-900;
+                color: $white;
+            }
+            &:disabled{
+                opacity: 0.3;
+                cursor: not-allowed;
+            }
         }
     
     
     #error_message{
-        color: red;
+        color: #E17052;
         font-size: 0.75rem;
         font-weight: 700;
         font-family: 'Space Mono', monospace;
@@ -175,9 +209,27 @@ main{
 }
 
 }
-.active{
-        background-color: $green-400;
-        color: $green-900;
+
+@media (min-width: 768px){
+    .container{
+        max-width: 38rem;
+        margin: 0 auto;
+        padding: 0 5rem;
     }
+    body{
+        background-color: $grey-50;
+        min-height: 100vh;
+    }
+}
 
-
+@media (min-width: 1024px){
+    body{
+        background-color: $grey-50;
+        min-height: 100vh;
+    }
+    .container{
+        max-width: 69.375rem;
+        margin: 0 auto;
+        padding: 0 5rem;
+    }
+}
