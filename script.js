@@ -30,6 +30,8 @@ function calculate() {
     tipAmount.textContent = `$${tipPerPerson.toFixed(2)}`;
     totalAmount.textContent = `$${totalPerPerson.toFixed(2)}`;
 
+    const untouched= billAmount === 0 && tipPercentage === 0 && numberOfPeople === 1;
+    resetButton.disabled = untouched;
 }
 
 tipButtons.forEach(button => {
@@ -65,6 +67,7 @@ resetButton.addEventListener('click', () => {
     tipPercentage = 0;
     numberOfPeople = 1;
     calculate();
+    
 });
 
 
