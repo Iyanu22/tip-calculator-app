@@ -26,16 +26,18 @@
 <input type="number" id="bill" placeholder="0.00">
 
   <p class="tip-label">Select Tip %</p>
-  <div class="tip-buttons">
-  <button>5%</button>
-  <button>10%</button>
-  <button>15%</button>
-  <button>25%</button>
-  <button>50%</button>
+  <div class="button_group">
+  <button class="tip_button" data-tip="5">5%</button>
+  <button class="tip_button" data-tip="10">10%</button>
+  <button class="tip_button" data-tip="15">15%</button>
+  <button class="tip_button" data-tip="25">25%</button>
+  <button class="tip_button" data-tip="50">50%</button>
   <!-- <button class="custom">Custom</button> -->
   <input type="number" id="custom-tip" placeholder="Custom">
 </div>  
-  <label for="people" class="label_people">Number of People</label>
+  <label for="people" class="label_people">Number of People
+    <span class="error_message" id="error_message">Can't be zero</span>
+  </label>
   <input type="number" id="people" placeholder="0">
   
 
@@ -45,7 +47,7 @@
     <p class="label_amount">Tip Amount</p>
      <p class="label_person">/ person</p> 
       </div>
-    <p class="total_amount">$4.27</p>
+    <p class="amount" id="tip_amount">$4.27</p>
     </div>
 
     <div class="row">
@@ -54,7 +56,7 @@
     <p class="label_person">/ person</p>
     
   </div>
-  <p class="total_amount">$8.54</p>
+  <p class="amount" id="total_amount">$8.54</p>
   </div>
   <button id="reset">Reset</button>
 </div>
