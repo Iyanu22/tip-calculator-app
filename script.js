@@ -43,8 +43,7 @@ tipButtons.forEach(button => {
     button.addEventListener('click', () => {
     tipPercentage = Number(button.getAttribute('data-tip'));
     customTipInput.value = '';
-    tipButtons.forEach(btn => btn.classList.remove('active')); 
-     btn.setAttribute('aria-pressed', 'false');
+   clearTipSelection();
     button.classList.add('active'); 
     button.setAttribute('aria-pressed', 'true');
     calculate(); 
@@ -53,7 +52,7 @@ tipButtons.forEach(button => {
 customTipInput.addEventListener('input', (e) => {
     tipPercentage = Number(e.target.value);
    
-   tipButtons.forEach(btn => btn.classList.remove('active'));
+   clearTipSelection();
     calculate();
 });
 peopleInput.addEventListener('input', () => {
@@ -69,7 +68,7 @@ resetButton.addEventListener('click', () => {
     billInput.value = '';
     peopleInput.value = '';
     customTipInput.value = '';
-    tipButtons.forEach(btn => btn.classList.remove('active'));
+    clearTipSelection();
     billAmount = 0;
     tipPercentage = 0;
     numberOfPeople = 1;
@@ -77,5 +76,10 @@ resetButton.addEventListener('click', () => {
     
 });
 
-
+function clearTipSelection() {
+    tipButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+    });
+}
 calculate(); // Initial calculation to set default values
