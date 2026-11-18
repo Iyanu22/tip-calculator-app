@@ -38,8 +38,8 @@ Beyond the brief, the app also:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Iyanu22/tip-calculator-app)
-- Live Site URL: [Add live site URL here](https://iyanu22.github.io/tip-calculator-app/)
+- Solution URL: [GitHub](https://github.com/Iyanu22/tip-calculator-app)
+- Live Site URL: [Live URL](https://iyanu22.github.io/tip-calculator-app/)
 
 ## My process
 
