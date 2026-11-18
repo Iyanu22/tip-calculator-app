@@ -34,7 +34,7 @@ Beyond the brief, the app also:
 
 ### Screenshot
 
-![](./images/tip-calculator-app.png)
+![Tip calculator app showing the completed desktop layout](./images/tip-calculator-app.png)
 
 ### Links
 
