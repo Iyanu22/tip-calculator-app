@@ -221,15 +221,60 @@ main{
         min-height: 100vh;
     }
 }
-
-@media (min-width: 1024px){
+@media (min-width: 1440px){
     body{
-        background-color: $grey-50;
+        background-color: $grey-200;
+    }
+
+    main{
+        justify-content: center;
         min-height: 100vh;
     }
+
     .container{
-        max-width: 69.375rem;
-        margin: 0 auto;
-        padding: 0 5rem;
+        max-width: 57.5rem;          // 920px card
+        padding: 0;                  // cancels the 5rem from the 768px query
+    }
+
+    .container .header{
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 5.5rem;       // gap between logo and card
+    }
+
+    .container .header_body{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 2rem 2rem 2rem 3rem;
+        margin-top: 0;               // removes the mobile overlap
+        border-radius: 1.5625rem;    // all four corners
+    }
+
+    .container .header_body .button_group{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container .header_body .results{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        padding: 2.5rem;
+    }
+
+    .container .header_body .row{
+        align-items: center;
+    }
+
+    .container .header_body .row + .row{
+        margin-top: 1.5rem;
+    }
+
+    .container .header_body .row .amount{
+        font-size: 3rem;
+    }
+
+    .container .header_body .results #reset{
+        margin-top: auto;            // pins Reset to the bottom
     }
 }
