@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+ <meta name="description" content="A tip calculator that splits the bill and tip per person.">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Tip calculator app</title>
-
+  
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 0.6875rem; text-align: center; }
@@ -26,20 +26,21 @@
 <label for="bill" class="bill">Bill</label>
 <input type="number" id="bill" placeholder="0.00">
 
-  <p class="tip-label">Select Tip %</p>
-  <div class="button_group">
-  <button class="tip_button" data-tip="5">5%</button>
-  <button class="tip_button" data-tip="10">10%</button>
-  <button class="tip_button" data-tip="15">15%</button>
-  <button class="tip_button" data-tip="25">25%</button>
-  <button class="tip_button" data-tip="50">50%</button>
+  <p class="tip-label" id="tip-label">Select Tip %</p>
+  <div class="button_group" role="group" aria-labelledby="tip-label">
+  <button class="tip_button" data-tip="5" aria-pressed="false">5%</button>
+  <button class="tip_button" data-tip="10" aria-pressed="false">10%</button>
+  <button class="tip_button" data-tip="15" aria-pressed="false">15%</button>
+  <button class="tip_button" data-tip="25" aria-pressed="false">25%</button>
+  <button class="tip_button" data-tip="50" aria-pressed="false">50%</button>
   <!-- <button class="custom">Custom</button> -->
-  <input type="number" id="custom-tip" placeholder="Custom">
+  <input type="number" id="custom-tip" placeholder="Custom" aria-label="Custom tip percentage" min="0" step="any">
 </div>  
   <label for="people" class="label_people">Number of People
-    <span class="error_message" id="error_message">Can't be zero</span>
+    <span class="error_message" id="error_message" role="alert">Can't be zero</span>
   </label>
-  <input type="number" id="people" placeholder="0">
+  <input type="number" id="people" placeholder="0"  min="1" step="1" inputmode="numeric"
+       aria-describedby="error_message">
   </div>
 
 <div class="results">
